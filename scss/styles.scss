@@ -1,0 +1,182 @@
+@import "variables";
+@import "colors";
+@import "reset", "function";
+
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: $myBlue;
+
+}
+h1 {
+    color: $myColor;
+    font-size: jedScreenDouble($lg); //Using function
+}
+
+
+// Create Mixin
+@mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+  }
+
+ /*
+  @mixin special-text {
+    @include important-text;
+    @include link; //Have not created yet
+    @include special-border; //Have not created yet
+  }
+  */
+
+ /*
+  // Define mixin with two arguments 
+@mixin bordered($myColor, $myWidth) {
+    border: $width solid $color;
+  }
+  */
+
+
+ /*
+  .myArticle {
+    @include bordered(blue, 1px);  // Call mixin with two values
+  }
+  
+  .myNotes {
+    @include bordered(red, 2px); // Call mixin with two values
+  }
+ */ 
+  
+
+  
+  // Use mixin
+  .danger {
+    @include important-text;
+    background-color: green;
+  }
+
+  //button
+  .button-basic  {
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button-report  {
+    @extend .button-basic;
+    background-color: red;
+  }
+  
+  .button-submit  {
+    @extend .button-basic;
+    background-color: green;
+    color: white;
+  }
+
+  //functions
+  h2 {
+    font-size: 4px + 2;
+    font-size: 4px - 2;
+    //font-size: 4px / 2 + 8;
+    font-size: 4px + 2;
+   // font-size: (4px / 2);
+    opacity: random($limit: 1);
+    //opacity: random(4) / 5;  //the / or division sign is deprecated
+    //width: 3px + (6px/2) * 2;
+
+    //Warning:
+    //Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+    //Recommendation: math.div(6px, 2) or calc(6px / 2)
+    font-size: calc(6px / 2);
+  }
+
+
+  //More functions
+  @function triple-pixel($myPixel) {
+    @return $myPixel * 3;
+  }
+
+
+//Sum function
+@function sum($numbers...) {      //the 3 dots means you can add multiple nums, an array or list of nums
+  $sum: 0;
+
+  @each $number in $numbers {
+    $sum: $sum + $number;
+  }
+
+  @return $sum;
+}//ends
+
+//Mix border using zip function
+@function jedzip($border) {
+  @return zip(1px 2px 3px, 4px, solid dashed dotted inset, red green blue yellow);
+}
+
+
+
+  //More mixins
+  @mixin jedMixin($boxSize: 100px) {
+    width: $boxSize;
+    height: $boxSize;
+  }
+
+  .box-1 {
+    background-color: red;
+    @include jedMixin;
+  }
+
+  .box-2 {
+    background-color: burlywood;
+    @include jedMixin;
+    border-radius: 10px;
+  }
+  
+  .box-3 {
+    background-color: aqua;
+    @include jedMixin(50px);
+    border-radius: triple-pixel(5px);
+  }
+
+  .square {
+    width: sum(100px, 40px, 10px, 5px);  //Using the sum function I created
+    height: sum(100px, 20px, 40px);
+    background-color: chocolate;
+    border-radius: random();
+
+  }
+
+  .square2 {
+    width: sum(100px, 40px, 10px, 5px);  //Using the sum function I created
+    height: sum(100px, 20px, 40px);
+    background-color: chocolate;
+    border-radius: max(5, 7, 9, 0, -3, -7);
+
+  }
+
+  .mix {
+    width: sum(100px, 40px, 10px, 5px); 
+    height: sum(100px, 20px, 40px);
+    background-color: limegreen;
+    border: zip(3px, dotted , red);
+    font-size: $meJedFontSize;
+    color: invert(white);
+    color: invert($color: #3b0606);
+    color: invert(white, 80%); //will give black
+    color: complement(#7fffd4);
+    color: hsl(120, 100%, 50%); // green
+    color: invert(blue); //will give yellow
+    background: mix(red, yellow);
+    background: mix(red, yellow, 35%);
+    background: mix(red, yellow, 75%);
+    background: (#7fffd4);
+    background: adjust-hue(#7fffd4, 80deg);
+    background: lighten($color: #1b0202, $amount: 60%);
+    background: lighten(#1b0202, 60%);
+  }
+
+ 

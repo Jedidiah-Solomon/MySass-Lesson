@@ -1,0 +1,24 @@
+//Project variables
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+$width : 10px;
+$lg : 2.0rem;
+$color-brown: rgb(70, 11, 1);
+$font-sizesjed: ("small": 12px, "normal": 18px, "large": 24px); //a map
+$meJedFontSize: map-get($font-sizesjed, "small"); //using a variable and mapget function to extract one
+//data types
+
+//null
+$jedNull: null;
+//booleans
+$jedMan: true;
+$jedWoman: false;
+//number
+$jednum: 6;
+//strings
+$className: 'Jedy Onwubiko';
+$schoolName: 'Jedynwa' + 'Solomon';
+//color
+$mySchColor: lightenJed(white, 15%); //#b8dc70

@@ -1,0 +1,4 @@
+@function jedScreenDouble($size) {
+    @return $size * 2;
+    //doubles the font-size
+}
