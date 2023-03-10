@@ -179,4 +179,21 @@ h1 {
     background: lighten(#1b0202, 60%);
   }
 
- 
+ //myButton styles
+ .myButton {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+  &:active {
+    background-color: darken($primary-color, 10%);
+  }
+ }
+
+ h3 {
+  font-size: $hisFont-size;
+  line-height: percentage(1.5);
+  margin-bottom: $rounder;
+  
+ }

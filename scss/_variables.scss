@@ -1,6 +1,8 @@
 //Project variables
 $myFont: Helvetica, sans-serif;
+$hisFont-size: 16px;
 $myColor: red;
+$primary-color: #007bff;
 $myFontSize: 18px;
 $myWidth: 680px;
 $width : 10px;
@@ -22,3 +24,7 @@ $className: 'Jedy Onwubiko';
 $schoolName: 'Jedynwa' + 'Solomon';
 //color
 $mySchColor: lightenJed(white, 15%); //#b8dc70
+
+//using round
+$myRounder: calc($hisFont-size / 3);
+$rounder: round($myRounder);
