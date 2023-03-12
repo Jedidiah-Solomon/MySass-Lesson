@@ -1,0 +1,21 @@
+CSS @import Rule
+
+
+Example
+Import the "navigation.css" style sheet into the current style sheet:
+
+@import "navigation.css"; /* Using a string */
+
+or
+
+@import url("navigation.css"); /* Using a url */
+
+
+More Example
+Import the "printstyle.css" style sheet ONLY if the media is print:
+
+@import "printstyle.css" print;
+Example
+Import the "mobstyle.css" style sheet ONLY if the media is screen and the viewport is maximum 768 pixels:
+
+@import "mobstyle.css" screen and (max-width: 768px);
